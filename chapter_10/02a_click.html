@@ -51,6 +51,8 @@
 					return "rgb(0, 0, " + (d * 10) + ")";
 			   })
 			   .on("click", function(d) {
+			   		// It works! However, this isn't a great idea.
+			   		// Click events should only be on buttons and links.
 			   		console.log(d);
 			   });
 

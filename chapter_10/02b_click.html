@@ -2,19 +2,15 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>D3: Sorting and re-sorting visual elements</title>
+		<title>D3: Click to log the data values to the console</title>
 		<script type="text/javascript" src="../d3/d3.v3.js"></script>
 		<style type="text/css">
-
-			rect:hover {
-				fill: orange;
-			}
-
+			/* No style rules here yet */		
 		</style>
 	</head>
 	<body>
 
-		<button>Sort Bars</button>
+		<button>Click me!</button>
 
 		<script type="text/javascript">
 
@@ -77,36 +73,11 @@
 			   .attr("font-size", "11px")
 			   .attr("fill", "white");
 
-			// Add click event to sort
+			// Add click event
 			d3.select("button")
-				.on('click', function() {
-					sortBars();
+				.on("click", function() {
+					console.log("Hello World!")
 				});
-			
-			//Define sort order flag
-			var sortOrder = false;
-			
-			//Define sort function
-			var sortBars = function() {
-
-				//Flip value of sortOrder
-			   	sortOrder = !sortOrder;
-
-				svg.selectAll("rect")
-				   .sort(function(a, b) {
-				   		if (sortOrder) {
-					   		return d3.ascending(a, b);
-				   		} else {
-					   		return d3.descending(a, b);
-				   		}
-				   	})
-				   .transition()
-				   .duration(1000)
-				   .attr("x", function(d, i) {
-				   		return xScale(i);
-				   });
-
-			};			
 			
 		</script>
 	</body>

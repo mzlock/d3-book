@@ -13,6 +13,9 @@
 		</style>
 	</head>
 	<body>
+
+		<button>Sort Bars</button>
+
 		<script type="text/javascript">
 
 			//Width and height
@@ -54,6 +57,11 @@
 			   .attr("fill", function(d) {
 					return "rgb(0, 0, " + (d * 10) + ")";
 			   })
+			   .attr("aria-label", function(d) {
+			   	// with the title and labels gone, make sure
+			   	// a screen reader can read this value
+			   	return d;
+			   })
 			   .on("mouseover", function(d) {
 
 					//Get this bar's x/y values, then augment for the tooltip
@@ -78,10 +86,13 @@
 					//Remove the tooltip
 					d3.select("#tooltip").remove();
 					
-			   })
-			   .on("click", function() {
-			   		sortBars();
 			   });
+
+			// Add click event to sort
+			d3.select("button")
+				.on('click', function() {
+					sortBars();
+				});
 
 			//Define sort order flag
 			var sortOrder = false;
