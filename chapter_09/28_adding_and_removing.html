@@ -10,8 +10,8 @@
 	</head>
 	<body>
 	
-		<p id="add">Add a new data value</p>
-		<p id="remove">Remove a data value</p>
+		<button id="add">Add a new data value</button>
+		<button id="remove">Remove a data value</button>
 			
 		<script type="text/javascript">
 
@@ -101,14 +101,14 @@
 
 
 			//On click, update with new data			
-			d3.selectAll("p")
+			d3.selectAll("button")
 				.on("click", function() {
 
-					//See which p was clicked
-					var paragraphID = d3.select(this).attr("id");
+					//See which button was clicked
+					var buttonID = d3.select(this).attr("id");
 					
 					//Decide what to do next
-					if (paragraphID == "add") {
+					if (buttonID == "add") {
 						//Add a data value
 						var maxValue = 25;
 						var newNumber = Math.floor(Math.random() * maxValue);
